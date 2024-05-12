@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>Log</filter-name>
+        <filter-class>Filtros.Log</filter-class>
+    </filter>
+    <filter>
+        <filter-name>MideTiempo</filter-name>
+        <filter-class>Filtros.MideTiempo</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>MideTiempo</filter-name>
+        <servlet-name>CalculaEdad</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Log</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>HolaMundo</servlet-name>
+        <servlet-class>Servlet.HolaMundo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CalculaEdad</servlet-name>
+        <servlet-class>Servlet.CalculaEdad</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HolaMundo</servlet-name>
+        <url-pattern>/HolaMundo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CalculaEdad</servlet-name>
+        <url-pattern>/CalculaEdad</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
